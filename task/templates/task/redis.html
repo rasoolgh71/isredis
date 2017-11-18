@@ -1,28 +1,35 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+     <script src="{% static 'jquery-3.2.1.min.js' %}"></script>
 </head>
 <body>
+{{gt}}
 <h1>redis</h1>
   <form action="" method="post">
       {% csrf_token %}
-      <p>
-        <select name="select">
-         <option value="---">------</option>
-         <option value="192.168.1.1">192.168.1.1</option>
-         <option value="192.168.1.2">192.168.1.2</option>
-         <option value="192.168.1.3">192.168.1.3</option>
-         <option value="192.168.1.4">192.168.1.4</option>
-        </select>
 
+    <p>
+      <select name="sel" id="org" >
+        <option value="192.168.1.1" {% if sel == '192.168.1.1' %}selected="selected"{% endif %} >{{ip1}}</option>
+        <option value="192.168.1.2" {% if sel == '192.168.1.2' %}selected="selected"{% endif %}>{{ip2}}</option>
+        <option value="192.168.1.3" {% if sel == '192.168.1.3' %}selected="selected"{% endif %}>{{ip3}}</option>
+        <option value="192.168.1.4" {% if sel == '192.168.1.4' %}selected="selected"{% endif %}>{{ip4}}</option>
+      </select>
 
-        <input type="submit" value="ok">
-
-      </p>
-
- </form>
+      <input type="submit" value="ok">
+    </p>
+  </form>
+<!--<script>-->
+    <!--$(document).ready(function() {-->
+         <!--$("#options").change(function(){-->
+            <!--$("#options option:selected").text($("#options").val());-->
+         <!--});-->
+    <!--})-->
+<!--</script>-->
 
 
 </body>
